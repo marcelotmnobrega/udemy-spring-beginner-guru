@@ -13,11 +13,12 @@ import org.springframework.stereotype.Controller;
 public class PropertyInjectedController {
 
     @Autowired
-    @Qualifier("greetingServiceImpl")
-    public GreetingService greetingService;
+    //This time we're using the field as the implementation name (bean name)
+    //But after we created the @Primary, the Primary is being used.
+    public GreetingService greetingServiceImpl;
 
     public String sayHello(){
-        return greetingService.sayGreeting();
+        return greetingServiceImpl.sayGreeting();
     }
 
 }
