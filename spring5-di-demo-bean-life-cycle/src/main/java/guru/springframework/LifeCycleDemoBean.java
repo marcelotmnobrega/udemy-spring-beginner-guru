@@ -16,8 +16,14 @@ import javax.annotation.PreDestroy;
 public class LifeCycleDemoBean implements BeanNameAware,
                                           BeanFactoryAware,
                                           ApplicationContextAware,
-                                          InitializingBean,
-                                          DisposableBean {
+                                          //beforeInit()
+                                          //@PostConstruct
+                                          InitializingBean, //afterPropertiesSet()
+                                          //afterInit()
+                                          //....
+                                          //@PreDestroy
+                                          DisposableBean //destroy()
+                                          {
 
 
     public LifeCycleDemoBean() {
