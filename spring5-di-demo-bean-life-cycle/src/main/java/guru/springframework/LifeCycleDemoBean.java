@@ -13,8 +13,11 @@ import javax.annotation.PreDestroy;
  * Created by jt on 6/5/17.
  */
 @Component
-public class LifeCycleDemoBean implements InitializingBean, DisposableBean, BeanNameAware,
-        BeanFactoryAware, ApplicationContextAware{
+public class LifeCycleDemoBean implements BeanNameAware,
+                                          BeanFactoryAware,
+                                          ApplicationContextAware,
+                                          InitializingBean,
+                                          DisposableBean {
 
 
     public LifeCycleDemoBean() {
@@ -36,12 +39,13 @@ public class LifeCycleDemoBean implements InitializingBean, DisposableBean, Bean
         System.out.println("## Application context has been set");
     }
 
-    public void beforeInit(){
+    //magic
+    public void beforeInit() {
         System.out.println("## - Before Init - Called by Bean Post Processor");
     }
 
     @PostConstruct
-    public void postConstruct(){
+    public void postConstruct() {
         System.out.println("## The Post Construct annotated method has been called");
     }
 
@@ -50,7 +54,8 @@ public class LifeCycleDemoBean implements InitializingBean, DisposableBean, Bean
         System.out.println("## The LifeCycleBean has its properties set!");
     }
 
-    public void afterInit(){
+    //magic
+    public void afterInit() {
         System.out.println("## - After init called by Bean Post Processor");
     }
 
